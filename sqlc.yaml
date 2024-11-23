@@ -1,0 +1,13 @@
+version: "1"
+packages:
+  - name: "db"  # Go 패키지 이름
+    path: "./db/sqlc"  # 생성될 코드가 위치할 Go 패키지 경로
+    engine: "postgresql"  # 데이터베이스 엔진 (postgresql, mysql, sqlite 등 지원)
+    schema:
+      - "./db/migration/"  # 데이터베이스 스키마 파일의 경로 (배열로 설정)
+    queries:
+      - "./db/query/"  # SQL 쿼리 파일이 위치한 디렉터리 (배열로 설정)
+    emit_json_tags: true  # 구조체에 JSON 태그 추가 여부
+    emit_interface: false  # 인터페이스 생성 여부
+    emit_prepared_queries: false  # Prepared statements로 쿼리 생성 여부
+    emit_exact_table_names: false  # 구조체 이름을 테이블 이름 그대로 사용할지 여부
